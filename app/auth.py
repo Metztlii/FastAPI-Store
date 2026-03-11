@@ -76,8 +76,6 @@ async def get_current_user(token: str = Depends(oauth2_scheme),
 def get_current_role(*args):
     async def dependecy(current_user: UserModel = Depends(get_current_user)):
         """Проверяет, что пользователь имеет роль переданную в аргументе role."""
-        print(current_user.role)
-        print(args)
         if current_user.role not in args:
             raise HTTPException(
                 status_code=status.HTTP_403_FORBIDDEN,
