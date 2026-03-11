@@ -32,8 +32,8 @@ async def create_category(category: CategoryCreate, db: AsyncSession = Depends(g
     Создаёт новую категорию.
     """
     # Проверка существования parent_id, если указан
-    if category.parent_id:
-      await check_active_category(category.parent_id, db)
+    if category.parent_id is not None:
+        await check_active_category(category.parent_id, db)
     # Создание новой категории
     db_category = CategoryModel(**category.model_dump())
     db.add(db_category)
