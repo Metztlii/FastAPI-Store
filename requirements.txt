@@ -1,0 +1,9 @@
+fastapi
+pydantic
+sqlalchemy
+alembic
+asyncpg
+passlib
+PyJWT
+python-dotenv
+python-multipart
